@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recipe Home</title>
+</head>
+<body>
+<h1 th:text="${'Yaay!, ' + username + ', you are in the Application Pretty Cool!'}"></h1>
+
+<form action="/add-post" th:method="post">
+    <input type="hidden" name="siteUserId" th:value="${siteUser.id}">
+    <label for="text">Add a Post</label>
+    <textarea placeholder="what is in your mind" name="text" rows="10" cols="50">
+
+        </textarea>
+    <input type="submit" value="Add Post">
+    <br><br>
+    <div method="GET" th:each="obj : ${posts}">
+        <p th:text="${obj.text}"></p>
+    </div>
+</form>
+
+</body>
+</html>
